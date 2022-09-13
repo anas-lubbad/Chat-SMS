@@ -14,9 +14,21 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+        updateTitle()
     }
     
+    
+    func updateTitle() {
+        titleLabel.text = ""
+        let titleText = K.flashChat
+        var count = 0.0
+        
+        for txt in titleText {
+            Timer.scheduledTimer(withTimeInterval: 0.1 * count, repeats: false) { timer in
+                self.titleLabel.text?.append(txt)
+            }
+            count+=1
+        }
+    }
 
 }
